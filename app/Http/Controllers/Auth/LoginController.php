@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -26,7 +28,30 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected function authenticated(Request $request, $user) {
+
+       if( $user->isBlock == 1 ){
+            Auth::logout();
+            return redirect()->route('login')->with('message','Your account has been suspended. ');
+       }
+       else {
+            if( $user->hasRole('admin') ) {
+                return redirect()->route('admin');
+            }
+            else {
+                return redirect()->route('user');
+            }
+       }
+
+        // if($user->isBlock == 0) {
+        //     
+        // }
+        // else {
+        //     return redirect()->back()->with('message', 'Account has been suspended.');
+        // }
+
+      
+    }
 
     /**
      * Create a new controller instance.

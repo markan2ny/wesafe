@@ -62,13 +62,7 @@
                 margin-bottom: 30px;
             }
             span {
-                font-weight: 700;
-            }
-            .title-intro {
-                color: crimson;
-            }
-            .title-intro2 {
-                color: lightskyblue;
+                font-weight: 500;
             }
         </style>
     </head>
@@ -90,9 +84,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome to <span class="title-intro">We</span><span class="title-intro2">Safe</span><br>
-                    Web Application
+                    <span class="title-intro">Welcome to</span><br>
                 </div>
+                <img src="{{ asset('/img/logo.gif') }}" width="280" alt="">
 
                 {{-- <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
