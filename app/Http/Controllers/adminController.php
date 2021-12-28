@@ -59,10 +59,8 @@ class adminController extends Controller
 
     protected function userList() {
 
-        // $allUsers = User::whereRoleIs('user')->orderBy('last_seen', 'desc');
-        $allUsers = DB::table('users')->orderBy('last_seen', 'desc')->get();
-        // dd($allUsers);
-
+        $allUsers = User::whereRoleIs('user')->orderBy('last_seen', 'desc')->get();
+        // $allUsers = DB::table('users')->orderBy('last_seen', 'desc')->get();
         return view('admin.table', compact('allUsers'));
 
     }
@@ -70,7 +68,7 @@ class adminController extends Controller
     public function show($id) {
 
         $profile = User::findOrFail($id);
-
+        // dd($profile);
         return view('admin.profile', compact('profile'));
 
     }
@@ -96,13 +94,35 @@ class adminController extends Controller
         if( $user ) {
 
             return redirect()
-                    ->route('userList')
+                    ->route('profile')
                     ->with('message', 'User Status update successfully.');
         }
+        else {
+            return redirect()
+            ->route('userList')
+            ->with('message', 'User failed to update.');
+        }
 
-        return redirect()
-                ->route('userList')
-                ->with('message', 'User failed to update.');
+      
+
+    }
+
+    public function isBlockFromProfile( $id, $status ) {
+
+        $user = DB::table('users')
+                ->select('isBlock')
+                ->where('id', $id)
+                ->update(['isBlock' => $status]);
+
+                if( $user ) {
+                    return redirect()
+                            ->route('profile')
+                            ->with('message', 'User Status update successfully.');
+                }
+        
+                return redirect()
+                        ->route('profile')
+                        ->with('message', 'User failed to update.');
 
     }
 

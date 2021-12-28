@@ -39,7 +39,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                   @forelse ($allUsers as $user)
+                   @foreach ($allUsers as $user)
                        <tr>
                            <td>{{ $user->id }}</td>
                            <td>{{ $user->name }}</td>
@@ -72,13 +72,10 @@
                                 @else
                                   <a href="{{ route('block', ['id' => $user->id, 'status' => 1]) }}" class="btn btn-danger btn-sm"><i class="fas fa-ban"></i></a>
                                 @endif
-                              
                                   <a href="{{ route('profile', $user->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
                            </td>
                        </tr>
-                   @empty
-                       
-                   @endforelse
+                   @endforeach
                 </tbody>
               </table>
             </div>

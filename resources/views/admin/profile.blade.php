@@ -37,11 +37,12 @@
                 </li>
                 
               </ul>
-
-              <a href="#" class="btn btn-primary btn-block"><b>Update</b></a>
-              <a href="#" class="btn btn-success btn-block"><b>Approve</b></a>
-              <a href="#" class="btn btn-warning btn-block"><b>Block</b></a>
-              <a href="#" class="btn btn-danger btn-block"><b>Delete</b></a>
+              @if ($profile->isBlock == 1) 
+                <a href="{{ route('isBlockFromProfile', ['id' => $profile->id, 'status' => 0]) }}" class="btn btn-success btn-block"><b>Unblock</b></a>
+              @else
+                <a href="{{ route('isBlockFromProfile', ['id' => $profile->id, 'status' => 1]) }}" class="btn btn-warning btn-block"><b>Block</b></a>
+              @endif
+                <a href="#" class="btn btn-danger btn-block"><b>Delete</b></a>
             </div>
             <!-- /.card-body -->
           </div>
@@ -95,7 +96,7 @@
               <ul class="nav nav-pills">
                 {{-- <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
                 <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li> --}}
-                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Update</a></li>
               </ul>
             </div><!-- /.card-header -->
             <div class="card-body">

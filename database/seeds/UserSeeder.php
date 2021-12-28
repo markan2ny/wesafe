@@ -14,7 +14,17 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 100; $i++) { 
+
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@app.com',
+            'address' => Str::random(10),
+            'phone' => '09222222222',
+            'password' => Hash::make('password'),
+        ])
+        ->attachRole('admin');
+
+        for ($i=0; $i < 10; $i++) { 
             $user = User::create(
                 [
                     'name' => Str::random(10),
