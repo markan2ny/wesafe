@@ -27,6 +27,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function() {
     Route::get('/admin', 'adminController@index')->name('admin');
     Route::get('/user-list', 'adminController@userList')->name('userList');
     Route::get('/user/{id}', 'adminController@show')->name('profile');
+    Route::put('/user/{id}', 'adminController@update')->name('update-profile');
     Route::get('/user/{id}/{status}', 'adminController@isBlockFromProfile')->name('isBlockFromProfile');
     Route::get('/pending-user', 'adminController@pendingUser')->name('pendingUser');
     Route::get('/user-list/{id}/{status}', 'adminController@isBlock')->name('block');

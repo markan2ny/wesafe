@@ -68,7 +68,6 @@ class adminController extends Controller
     public function show($id) {
 
         $profile = User::findOrFail($id);
-        // dd($profile);
         return view('admin.profile', compact('profile'));
 
     }
@@ -94,7 +93,7 @@ class adminController extends Controller
         if( $user ) {
 
             return redirect()
-                    ->route('profile')
+                    ->route('userList')
                     ->with('message', 'User Status update successfully.');
         }
         else {
@@ -116,12 +115,12 @@ class adminController extends Controller
 
                 if( $user ) {
                     return redirect()
-                            ->route('profile')
+                            ->route('profile', $id)
                             ->with('message', 'User Status update successfully.');
                 }
         
                 return redirect()
-                        ->route('profile')
+                        ->route('profile', $id)
                         ->with('message', 'User failed to update.');
 
     }
@@ -152,5 +151,25 @@ class adminController extends Controller
 
         return $user;
 
+    }
+
+    public function update(Request $request, $id) {
+
+        $user = DB::table('users')
+                    ->select('*')
+                    ->where('id', $id)
+                    ->update(
+                        [
+                            'name' => $request->input('name'),
+                            'address' => $request->input('address'),
+                            'email' => $request->input('email'),
+                            'phone' => $request->input('phone'),
+                        ]
+                    );
+        if($user) {
+            return redirect()
+                    ->route('profile', $id)
+                    ->with('message', 'Update successfully');
+        }
     }
 }
