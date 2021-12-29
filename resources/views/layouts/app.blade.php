@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @stack('mapbox-style')
 </head>
 <body style="background: #333652;">
     <div id="app">
@@ -78,5 +80,7 @@
             @yield('content')
         </main>
     </div>
+
+    @stack('mapbox-script')
 </body>
 </html>

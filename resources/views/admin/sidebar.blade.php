@@ -131,6 +131,77 @@
               </li> --}}
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                Goverment Offices
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              {{-- <li class="nav-item">
+                <a href="../examples/invoice.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Invoice</p>
+                </a>
+              </li> --}}
+              {{-- <li class="nav-item">
+                <a href="../examples/profile.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Profile</p>
+                </a>
+              </li> --}}
+              {{-- <li class="nav-item">
+                <a href="../examples/e-commerce.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>E-commerce</p>
+                </a>
+              </li> --}}
+              {{-- <li class="nav-item">
+                <a href="../examples/projects.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Projects</p>
+                </a>
+              </li> --}}
+              {{-- <li class="nav-item">
+                <a href="../examples/project-add.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project Add</p>
+                </a>
+              </li> --}}
+              {{-- <li class="nav-item">
+                <a href="../examples/project-edit.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project Edit</p>
+                </a>
+              </li> --}}
+              {{-- <li class="nav-item">
+                <a href="../examples/project-detail.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Project Detail</p>
+                </a>
+              </li> --}}
+              <li class="nav-item">
+                <a href="{{ route('userList') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Offices</p>
+                </a>
+              </li>
+              {{-- <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Block List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('pendingUser' )}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pending List</p>
+                </a>
+              </li> --}}
+            </ul>
+          </li>
           {{-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>

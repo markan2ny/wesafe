@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 
   @stack('datatable-style')
+  @stack('toast-style')
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -125,6 +126,6 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 
 @stack('datatable-script')
-
+@stack('toast-script')
 </body>
 </html>

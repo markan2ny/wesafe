@@ -113,15 +113,14 @@ class adminController extends Controller
                 ->where('id', $id)
                 ->update(['isBlock' => $status]);
 
-                if( $user ) {
-                    return redirect()
-                            ->route('profile', $id)
-                            ->with('message', 'User Status update successfully.');
-                }
-        
-                return redirect()
-                        ->route('profile', $id)
-                        ->with('message', 'User failed to update.');
+        if( $user ) {
+            return redirect()
+                    ->route('profile', $id)
+                    ->with('message', 'User has been updated!');
+            }
+            return redirect()
+                    ->route('profile', $id)
+                    ->with('message', 'User failed to update.');
 
     }
 
