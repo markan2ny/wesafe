@@ -177,7 +177,6 @@ class adminController extends Controller
                     ->where('id', $id)
                     ->delete();
 
-
         return redirect()->route('userList')->with('message', 'User has been deleted.');
 
     } 
