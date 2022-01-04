@@ -171,17 +171,13 @@ class adminController extends Controller
                     ->with('message', 'Update successfully');
         }
     }
+    public function destroy( $id ) {
+        
+        $user = DB::table('users')
+                    ->where('id', $id)
+                    ->delete();
 
+        return redirect()->route('userList')->with('message', 'User has been deleted.');
 
-    public function destroy($id) {
-
-        DB::table('users')
-            ->where('id', $id)
-            ->delete();
-
-        return redirect()->route('userList')
-                        ->with('message', 'User has been deleted.');
-
-
-    }
+    } 
 }

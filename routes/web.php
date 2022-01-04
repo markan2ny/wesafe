@@ -33,9 +33,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function() {
     Route::get('/user-list/{id}/{status}', 'adminController@isBlock')->name('block');
     Route::get('/pending-user/{id}/{status}', 'adminController@isApprove')->name('approve');
     Route::delete('/user-list/{id}', 'adminController@destroy')->name('delete');
-
 });
-
 Route::group(['prefix' => '/'], function() {
 
     Route::get('user', 'userController@index')->name('user');
@@ -45,7 +43,6 @@ Route::group(['prefix' => '/'], function() {
     Route::get('/sos', 'userController@sos')->name('sos');
 
 });
-
 Route::get('/logout', function() {
 
     Session::flush();

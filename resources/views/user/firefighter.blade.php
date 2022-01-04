@@ -44,7 +44,6 @@
     }
     .btn-cta:hover {
         color: #fff !important;
-        padding: 20px 25px;
     }
     #map {
         border: 8px solid #fff;
@@ -76,7 +75,7 @@
             </div>
             <div class="col-lg-6">
                <div class="message-holder">
-                   <a href="tel:09222222222" class="btn-cta phone">Make a phone call</a>
+                   <a href="tel:091223456789" class="btn-cta phone">Make a phone call</a>
                </div>
             </div>
         </div>
@@ -84,7 +83,6 @@
 <div id='map' class="mt-1 mb-5"></div>
 
 </div>
-
 
 @endsection
 
@@ -136,9 +134,8 @@
                 trackUserLocation: true,
                 // Draw an arrow next to the location dot to indicate which direction the device is heading.
                 showUserHeading: true
-                })
+            })
         );
-
     }
 
   </script>
