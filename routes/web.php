@@ -32,6 +32,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function() {
     Route::get('/pending-user', 'adminController@pendingUser')->name('pendingUser');
     Route::get('/user-list/{id}/{status}', 'adminController@isBlock')->name('block');
     Route::get('/pending-user/{id}/{status}', 'adminController@isApprove')->name('approve');
+    Route::delete('/user-list/{id}', 'adminController@destroy')->name('delete');
 
 });
 

@@ -70,9 +70,15 @@
                                 @if ( $user->isBlock == 1)
                                   <a href="{{ route('block', ['id' => $user->id, 'status' => 0]) }}" class="btn btn-success btn-sm"><i class="fas fa-check-circle"></i></a>
                                 @else
-                                  <a href="{{ route('block', ['id' => $user->id, 'status' => 1]) }}" class="btn btn-danger btn-sm"><i class="fas fa-ban"></i></a>
+                                  <a href="{{ route('block', ['id' => $user->id, 'status' => 1]) }}" class="btn btn-warning btn-sm"><i class="fas fa-ban"></i></a>
                                 @endif
                                   <a href="{{ route('profile', $user->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+                                  <form action="{{ route('delete', $user->id)}}" method="POST" class="d-inline">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                </form>
+
                            </td>
                        </tr>
                    @endforeach
