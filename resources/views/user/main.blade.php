@@ -45,7 +45,7 @@
                 </div>
     
                 <div class="col-lg-3 col-md-4 col-sm-12 col mb-5">
-                    <a href="#">
+                    <a href="{{ route('ambulance')}}">
                         <div class="card lgu-card">
                             <div class="card-header">
                                 Ambulance
@@ -59,7 +59,7 @@
                
     
                 <div class="col-lg-3 col-md-4 col-sm-12 col mb-5">
-                    <a href="#">
+                    <a href="{{ route('police') }}">
                         <div class="card lgu-card">
                             <div class="card-header">
                                 Police
@@ -72,7 +72,7 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-4 col-sm-12 col mb-5">
-                    <a href="#">
+                    <a href="{{ route('sos') }}">
                         <div class="card lgu-card">
                             <div class="card-header">
                                 Emergency | SOS
@@ -84,7 +84,7 @@
                     </a>
                 </div>
     
-                <div class="col-lg-3 col-md-4 col-sm-12 col mb-5">
+                {{-- <div class="col-lg-3 col-md-4 col-sm-12 col mb-5">
                     <a href="#">
                         <div class="card lgu-card">
                             <div class="card-header">
@@ -95,7 +95,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> --}}
                
             </div>
         </div>

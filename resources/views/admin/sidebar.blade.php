@@ -36,7 +36,6 @@
               </li>
             </ul>
           </li>
-<<<<<<< HEAD
           {{-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
@@ -54,8 +53,6 @@
               </li>
             </ul>
           </li> --}}
-=======
->>>>>>> e0cd7a648fcc78e2f0bf4ee8d5c4b94dde046154
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
