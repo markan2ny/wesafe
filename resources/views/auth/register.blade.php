@@ -4,7 +4,8 @@
 @section('main')
 <div class="register-box">
     <div class="register-logo">
-        <a href="#"><b style="color: crimson;">We</b>Safe</a>
+      <img src="{{ asset('/img/logo.gif')}}" alt="" width="130">
+        {{-- <a href="#"><b style="color: crimson;">We</b>Safe</a> --}}
     </div>
   
     <div class="card">

@@ -3,7 +3,7 @@
 @section('main')
 <div class="login-box">
     <div class="login-logo">
-      <a href="#"><b style="color: crimson;">We</b>Safe</a>
+      <img src="{{ asset('/img/logo.gif')}}" alt="" width="130">
     </div>
     <!-- /.login-logo -->
     
