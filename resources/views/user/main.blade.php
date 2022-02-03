@@ -38,7 +38,7 @@
                                 Fire Fighter
                             </div>
                             <div class="card-body ">
-                                <img src="{{ asset('/img/fire-truck.png')}}" class="d-block m-auto" width="150" alt="">
+                                <img src="{{ asset('/img/fire.png')}}" class="d-block m-auto" width="150" alt="">
                             </div>
                         </div>
                     </a>
@@ -51,7 +51,7 @@
                                 Ambulance
                             </div>
                             <div class="card-body ">
-                                <img src="{{ asset('/img/light.png')}}" class="d-block m-auto" width="150" alt="">
+                                <img src="{{ asset('/img/ambulance.png')}}" class="d-block m-auto" width="150" alt="">
                             </div>
                         </div>
                     </a>
@@ -65,7 +65,7 @@
                                 Police
                             </div>
                             <div class="card-body ">
-                                <img src="{{ asset('/img/police-badge.png')}}" class="d-block m-auto" width="150" alt="">
+                                <img src="{{ asset('/img/police.png')}}" class="d-block m-auto" width="150" alt="">
                             </div>
                         </div>
                     </a>
@@ -78,7 +78,7 @@
                                 Emergency | SOS
                             </div>
                             <div class="card-body ">
-                                <img src="{{ asset('/img/emergency-call.png')}}" class="d-block m-auto" width="150" alt="">
+                                <img src="{{ asset('/img/emergency.png')}}" class="d-block m-auto" width="150" alt="">
                             </div>
                         </div>
                     </a>

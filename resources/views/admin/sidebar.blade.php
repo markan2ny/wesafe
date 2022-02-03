@@ -40,7 +40,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-                Goverment Offices
+                Manage Offices
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -48,7 +48,7 @@
               <li class="nav-item">
                 <a href="{{ route('userList') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Offices</p>
+                  <p>Stations</p>
                 </a>
               </li>
             </ul>

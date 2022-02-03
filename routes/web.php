@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\checkUserController;
 use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +42,7 @@ Route::group(['prefix' => '/'], function() {
     Route::get('/ambulance', 'userController@ambulance')->name('ambulance');
     Route::get('/fire-fighter', 'userController@firefighter')->name('firefighter');
     Route::get('/sos', 'userController@sos')->name('sos');
-
+    Route::get('/getBarangay/{id}', 'userController@fetch');
 });
 Route::get('/logout', function() {
 
@@ -49,3 +50,12 @@ Route::get('/logout', function() {
     Auth::logout();
     return redirect('/');
 })->name('logout');
+
+
+Route::get('/clear-cache', function() {
+
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::class('config:clear');
+
+    return "Done";
+});

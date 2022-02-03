@@ -50,6 +50,32 @@
         border-radius: 10px;
         height: 60vh;
     }
+    /* .info-container {
+        position: relative;
+        background: url('/img/121212.jpg');
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        z-index: -1;
+    }
+    .info-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: .5;
+        z-index: 1;
+
+    } */
+    .list2 {
+        font-size: 20px;
+        z-index: 100;
+    }
 </style>
 
 @push('mapbox-style')
@@ -63,24 +89,54 @@
 <div class="container">
     <div class="info-container">
         <div class="row">
-            <div class="col-lg-6 d-flex align-items-center py-4 justify-content-center">
+            <div class="col-lg-6 d-flex align-items-center py-4">
                 <div class="img-holder">
-                    <img src="{{ asset('img/fire-truck.png')}}" alt="">
+                    <img src="{{ asset('img/fire.png')}}" alt="">
                 </div>
                 <div class="detail-holder ml-4">
-                    <h3>Pulilan Fire Fighter</h3>
-                    <strong>0922-222-2222</strong>
-                    <p class="text-muted mb-0">Brgy. Puchuchu, Pulilan Bulacan</p>
+                    <h1 id="title">FIRE RESCUE</h1>
+                    <h5 id="mobile">Mobile Number</h5>
+                    <h6 id="address">Address</h6>
                 </div>
             </div>
             <div class="col-lg-6">
                <div class="message-holder">
-                   <a href="tel:091223456789" class="btn-cta phone">Make a phone call</a>
+                   <a href="#" id="makecall" class="btn-cta phone">Make a phone call</a>
                </div>
             </div>
         </div>
     </div>
-<div id='map' class="mt-1 mb-5"></div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card mt-1 mb-3">
+                <div class="card-body">
+                    <form>
+                        @csrf
+                        <div class="form-group">
+                          <label for="exampleFormControlSelect1">Location</label>
+                          <select class="form-control" id="location" name="location" data-dependent="barangay">
+                            <option selected disabled>--Select Location--</option>
+                            @foreach ($stations as $station)
+                                @foreach ($station->getLocations as $location)
+                                    <option value="{{ $location->id }}">{{ $location->location }}</option>
+                                @endforeach
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect2">List of Barangay</label>
+                            <select multiple class="form-control" id="list2">
+                             
+                            </select>
+                          </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div id='map' class="mt-1 mb-5"></div>
+        </div>
+    </div>
 
 </div>
 
@@ -89,6 +145,8 @@
 @push('mapbox-script')
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoibWFya2FuMm55IiwiYSI6ImNreHF3aGhzMTU4a3Qyd3BmanUwbmh4anIifQ.aY6MrSmJZlwu2HGMUp0JSQ';
@@ -138,6 +196,42 @@
         );
     }
 
+  </script>
+  
+  <script>
+      $(document).ready(function() {
+
+        $(document).on('change', '#location', function() {
+            let id = $(this).val();
+
+            $('#title1').empty();
+            $('#sub_location').empty();
+            $('#sub_location').append(`<option selected disabled>--Select Barangay--</option>`);
+
+            $.ajax({
+                type: 'GET',
+                url: 'getBarangay/' + id,
+                success: function(data){
+
+                    $('#list2').empty();
+                    $('#sub_location').empty();
+                    $('#sub_location').append(`<option selected disabled>--Select Barangay--</option>`);
+
+                    data.get_barangays.forEach(function(e) {
+                        $('#list2').append(`<option value="${e.barangay}" data-mobile="${e.mobile}"class="list2">${e.barangay}</option>`);
+                    });
+                }
+            })
+        })
+
+        $('#list2').change(function(){
+        var selected = $(this).find('option:selected');
+            $('#title').html(selected.text()); 
+            $('#address').html(selected.val().toUpperCase()); 
+            $('#mobile').html(selected.data('mobile'));
+            $("#makecall").attr("href", 'tel:'+selected.data('mobile')); 
+        }).change();
+      })
   </script>
   
 @endpush

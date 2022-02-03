@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Station;
+use App\Location;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class userController extends Controller
 {
@@ -20,15 +23,27 @@ class userController extends Controller
     }
 
     public function police() {
-        return view('user.police');
+        $stations = Station::with('getLocations')->get()->where('station_name', 'police');
+        return view('user.police',compact('stations'));
     }
     public function ambulance() {
-        return view('user.ambulance');
+        $stations = Station::with('getLocations')->get()->where('station_name', 'ambulance');
+        return view('user.ambulance',compact('stations'));
     }
     public function sos() {
-        return view('user.sos');
+        $stations = Station::with('getLocations')->get()->where('station_name', 'emergency');
+        return view('user.sos',compact('stations'));
     }
     public function firefighter() {
-        return view('user.firefighter');
+
+        $stations = Station::with('getLocations')->get()->where('station_name', 'fire');
+        return view('user.firefighter', compact('stations'));
     }
+    public function fetch($id) {
+
+        $barangay = \App\Location::with('getBarangays')->get()->find($id);
+
+        return response()->json($barangay);
+    }
+
 }
